@@ -1,5 +1,4 @@
 <html>
-@section('head')
 <head>
 
    <title>@yield('title')</title>
@@ -11,11 +10,9 @@
     .menutitle{font-size:14pt;font-weight:bold;margin:0px;}
     .content{margin:10px;}
     .footer{text-align:right;font-size:10pt;margin:10px;border-bottom:solid 1px #ccc;color:#ccc;}
-    .comment{ width:120px; }
     </style>
  
 </head>
- @show
 <body>
    <h1>@yeild('title')</h1>
         @section('menubar')
@@ -24,6 +21,9 @@
           <li>@show</li>
         </ul>
         <hr size="1">
+        <div class="board">
+        @yield('board')
+        </div>
         <div class="content">
         @yield('content')
         </div>

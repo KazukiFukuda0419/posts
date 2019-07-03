@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 class HelloController extends Controller
 {
     public function index(){
-    $data = ['msg'=>'これはbladeを利用したサンプルです。'];
-    return view('bulletin.index',$data);
+        $items = DB::select('select * from people');
+        return view('hello.add',['items' => $items]);
+        
     }
     
     public function add(Request $request)
@@ -24,6 +25,6 @@ class HelloController extends Controller
         ];
         DB::insert('insert into people (name,comment) values (:name,:comment)',$param);
         
-        return redirect(hello);
+        return redirect('hello/add');
     }
 }
